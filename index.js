@@ -1,8 +1,11 @@
 import express from "express";
 import fetch from "node-fetch";
 import cheerio from "cheerio";
+import cors from "cors";
 
 const app = express();
+
+app.use(cors());
 
 app.get("/metadata", async (req, res) => {
   const { url } = req.query;

@@ -16,7 +16,7 @@ app.get("/metadata", async (req, res) => {
     const description = $('head meta[name="description"]').attr('content');
     const image = $('head meta[property="og:image"]').attr('content');
 
-    res.json({ title, description, image });
+    res.json({ title, description, image, url });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Failed to fetch metadata." });

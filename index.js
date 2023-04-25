@@ -6,6 +6,9 @@ import URL from "url";
 import { checkForCache, createCache } from "./lib/cache.js";
 import expressLimiter from "express-limiter";
 import { createClient } from "redis";
+import { config } from "dotenv";
+
+config();
 
 const app = express();
 
@@ -33,7 +36,7 @@ limiter({
 });
 
 app.get("/metadata", async (req, res) => {
-  const { url } = req.query;
+  let { url } = req.query;
 
   try {
     if (!url) {
@@ -68,7 +71,7 @@ app.get("/metadata", async (req, res) => {
       let output = { title, description, image, url, hostname: lpUrl.hostname, siteName: url };
 
       res.status(200).json(output);
-      
+
       // cache the result
       if (!cached && output) {
         await createCache({

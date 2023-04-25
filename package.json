@@ -12,10 +12,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@supabase/supabase-js": "^2.21.0",
     "cheerio": "^1.0.0-rc.12",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "node-fetch": "^3.3.1"
+    "express-limiter": "^1.6.1",
+    "node-fetch": "^3.3.1",
+    "redis": "^4.6.5"
   },
   "type": "module"
 }
